@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Collections;
 
 namespace FileSystem
 {
-    public class FileSystemVisitor
+    public class FileSystemVisitor: IEnumerable
     {
-        public List<string> dirs = new List<string>();
+        private List<string> dirs = new List<string>();
 
         public void GetDerictories(string directiryName)
         {
@@ -26,6 +27,10 @@ namespace FileSystem
             {
                 
             }
+            catch(DirectoryNotFoundException e)
+            {
+
+            }
         
             dirs.AddRange(files);
 
@@ -37,6 +42,21 @@ namespace FileSystem
                 GetDerictories(directiry);
             }
             
+        }
+
+    
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        IEnumerator<string> GetEnumerator()
+        {
+           foreach(var element in dirs)
+            {
+                yield return element;
+            }
         }
     }
 }

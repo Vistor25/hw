@@ -15,7 +15,7 @@ namespace ConsoleApp1
             FileSystemVisitor fl = new FileSystemVisitor();
             fl.GetDerictories(dirname);
             
-            foreach(var name in fl.dirs)
+            foreach(var name in fl)
             {
                 Console.WriteLine(name);
             }
