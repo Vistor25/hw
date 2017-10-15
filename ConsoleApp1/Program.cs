@@ -13,7 +13,12 @@ namespace ConsoleApp1
         {
             string dirname = Console.ReadLine();
             FileSystemVisitor fl = new FileSystemVisitor();
-            fl.GetDerictories(dirname);
+            fl.Start += () => Console.WriteLine("Started");
+            fl.Finish += () => Console.WriteLine("Finished");
+            fl.FileFound += () => Console.WriteLine("File was founded");
+            fl.DirectoryFound += () => Console.WriteLine("Directory was founded");
+            fl.GetAllFilesAndDirectories(dirname);
+            
             
             foreach(var name in fl)
             {
