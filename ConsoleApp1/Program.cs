@@ -19,7 +19,7 @@ namespace ConsoleApp1
             //}
             //Console.ReadLine();
             //string dirname = Console.ReadLine();
-            FileSystemVisitor fl = new FileSystemVisitor(@"C:\Python27\Tools");
+            FileSystemVisitor fl = new FileSystemVisitor(@"C:\Intel");
             fl.Start += () => Console.WriteLine("Started");
             fl.Finish += () => Console.WriteLine("Finished");
            

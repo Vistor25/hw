@@ -32,46 +32,66 @@ namespace FileSysClassLibrary
         }
         private IEnumerable<string> GetDerictories(DirectoryInfo rootDirectory)
         {
-
-            foreach (var directory in rootDirectory.EnumerateDirectories())
+            var directories = new List<DirectoryInfo>();
+            try
             {
-                    OnDirectoryFound(directory);
-                    if (_directoryFilter != null && _directoryFilter(directory))
-                    {
-                        OnFilteredDirectoryFound(directory);
-                    }
-                    foreach (var file in rootDirectory.EnumerateFiles())
-                    {
-                        OnFileFound(file);
-                        if (_fileFilter != null && _fileFilter(file))
-                        {
-                            OnFilteredFileFound(file);
-                        }
-                        yield return file.Name;
-                        if (!Run)
-                        {
-                            yield break;
-                        }
-
-                    }
-                GetDerictories(directory);
-                    yield return directory.FullName;
-                    if (!Run)
-                    {
-                        yield break;
-                    }
-
-                
+                directories = rootDirectory.EnumerateDirectories()?.ToList();
             }
-            
-            //if(rootDirectory == _rootDirectory)
-            //{
-            //    OnFinish();
-            //}
-           
+            catch (UnauthorizedAccessException)
+            {
+
+            }
+
+            foreach (var file in rootDirectory.EnumerateFiles())
+            {
+                OnFileFound(file);
+                if (_fileFilter != null && _fileFilter(file))
+                {
+                    OnFilteredFileFound(file);
+                }
+                yield return file.Name;
+                if (!Run)
+                {
+                    yield break;
+                }
+
+            }
+
+            foreach (var directory in directories)
+            {
+                if (!Run)
+                {
+                    yield break;
+                }
+
+                OnDirectoryFound(directory);
+                if (_directoryFilter != null && _directoryFilter(directory))
+                {
+                    OnFilteredDirectoryFound(directory);
+                }
+
+                yield return directory.FullName;
+
+                if (!Run)
+                {
+                    yield break;
+                }
+
+                foreach (var item in GetDerictories(directory))
+                {
+                    yield return item;
+                }
+
+            }
+
+            if (rootDirectory == _rootDirectory)
+            {
+                OnFinish();
+            }
+
         }
 
-       
+
         protected virtual void OnStart() => Start?.Invoke();
         protected virtual void OnFinish() => Finish?.Invoke();
         protected virtual void OnDirectoryFound(DirectoryInfo directory) => DirectoryEvent(DirectoryFound, directory);
