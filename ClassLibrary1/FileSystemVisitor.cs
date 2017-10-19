@@ -6,85 +6,113 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections;
 
-namespace FileSystem
+namespace FileSysClassLibrary
 {
     public class FileSystemVisitor: IEnumerable
     {
-        private List<string> dirs = new List<string>();
-
+        private DirectoryInfo _rootDirectory;
+        private bool Run = true;
         public event Action Start;
         public event Action Finish;
-        public event Action DirectoryFound;
-        public event Action FileFound;
+        public event EventHandler<DirectoryEventArgs> DirectoryFound;
+        public event EventHandler<FileEventArgs> FileFound;
+        public event EventHandler<DirectoryEventArgs> FilteredDirectoryFound;
+        public event EventHandler<FileEventArgs> FilteredFileFound;
 
-        private Predicate<string> _filter; 
-        public FileSystemVisitor() { }
-        public FileSystemVisitor(Predicate<string> filter)
+        private Predicate<DirectoryInfo> _directoryFilter;
+        private Predicate<FileInfo> _fileFilter;
+        public FileSystemVisitor(string rootFolder)
         {
-            _filter = filter;
+            _rootDirectory = new DirectoryInfo(rootFolder);
         }
-        private void GetDerictories(string directiryName)
+        public FileSystemVisitor(string rootFolder, Predicate<FileInfo> fileFilter, Predicate<DirectoryInfo> directoryFilter):this(rootFolder)
         {
-            string[] directories = new string[] { };
-            string[] files = new string[] { };
+            _fileFilter = fileFilter;
+            _directoryFilter = directoryFilter;
+        }
+        private IEnumerable<string> GetDerictories(DirectoryInfo rootDirectory)
+        {
 
+            foreach (var directory in rootDirectory.EnumerateDirectories())
+            {
+                    OnDirectoryFound(directory);
+                    if (_directoryFilter != null && _directoryFilter(directory))
+                    {
+                        OnFilteredDirectoryFound(directory);
+                    }
+                    foreach (var file in rootDirectory.EnumerateFiles())
+                    {
+                        OnFileFound(file);
+                        if (_fileFilter != null && _fileFilter(file))
+                        {
+                            OnFilteredFileFound(file);
+                        }
+                        yield return file.Name;
+                        if (!Run)
+                        {
+                            yield break;
+                        }
 
-            try
-            {
-                directories = Directory.GetDirectories(directiryName);
-                files = Directory.GetFiles(directiryName);
-            }
-            catch(UnauthorizedAccessException e)
-            {
+                    }
+                GetDerictories(directory);
+                    yield return directory.FullName;
+                    if (!Run)
+                    {
+                        yield break;
+                    }
+
                 
             }
-            catch(DirectoryNotFoundException e)
-            {
+            
+            //if(rootDirectory == _rootDirectory)
+            //{
+            //    OnFinish();
+            //}
+           
+        }
 
-            }
-            foreach (var file in files)
-            {
-                OnFileFound();
-            }
-        
-            dirs.AddRange(files);
+       
+        protected virtual void OnStart() => Start?.Invoke();
+        protected virtual void OnFinish() => Finish?.Invoke();
+        protected virtual void OnDirectoryFound(DirectoryInfo directory) => DirectoryEvent(DirectoryFound, directory);
+        protected virtual void OnFileFound(FileInfo file) => FileEvent(FileFound, file);
+        protected virtual void OnFilteredDirectoryFound(DirectoryInfo directory) => DirectoryEvent(FilteredDirectoryFound, directory);
+        protected virtual void OnFilteredFileFound(FileInfo file) => FileEvent(FilteredFileFound, file);
 
-            foreach (var directiry in directories)
+        private void FileEvent(EventHandler<FileEventArgs> fileEvent, FileInfo file)
+        {
+            if (fileEvent != null)
             {
-                OnDirectoryFound();
-                dirs.Add(directiry);
-                
-                GetDerictories(directiry);
+                FileEventArgs args = new FileEventArgs
+                {
+                    File = file,
+                    Run = true
+                };
+                fileEvent?.Invoke(this, args);
+                Run = args.Run;
             }
             
         }
-
-        public void GetAllFilesAndDirectories(string directoryname)
+        private void DirectoryEvent(EventHandler<DirectoryEventArgs> directoryEvent, DirectoryInfo directory)
         {
-            OnStart();
-            GetDerictories(directoryname);
-            OnFinish();
-        }
+            if (directoryEvent != null)
+            {
+                DirectoryEventArgs args = new DirectoryEventArgs
+                {
+                    Directory = directory,
+                    Run = true
+                };
+                directoryEvent?.Invoke(this, args);
+                Run = args.Run;
+            }
 
-        public void Filter()
-        {
-            dirs.Where(item => _filter(item));
         }
-        protected virtual void OnStart() => Start?.Invoke();
-        protected virtual void OnFinish() => Finish?.Invoke();
-        protected virtual void OnDirectoryFound() => DirectoryFound?.Invoke();
-        protected virtual void OnFileFound() => FileFound?.Invoke();
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return GetEnumerator();
+            OnStart();
+            return GetDerictories(_rootDirectory).GetEnumerator();          
         }
 
-        IEnumerator<string> GetEnumerator()
-        {
-           foreach(var element in dirs)
-            {
-                yield return element;
-            }
-        }
+        
     }
 }

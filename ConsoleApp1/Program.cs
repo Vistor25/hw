@@ -1,6 +1,7 @@
-﻿using FileSystem;
+﻿using FileSysClassLibrary;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,16 +12,20 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string dirname = Console.ReadLine();
-            FileSystemVisitor fl = new FileSystemVisitor();
+            //DirectoryInfo dirPrograms = new DirectoryInfo(@"c:\progrm files");
+            //foreach(var directory in dirPrograms.EnumerateDirectories())
+            //{
+            //    Console.WriteLine(directory.FullName);
+            //}
+            //Console.ReadLine();
+            //string dirname = Console.ReadLine();
+            FileSystemVisitor fl = new FileSystemVisitor(@"C:\Python27\Tools");
             fl.Start += () => Console.WriteLine("Started");
             fl.Finish += () => Console.WriteLine("Finished");
-            fl.FileFound += () => Console.WriteLine("File was founded");
-            fl.DirectoryFound += () => Console.WriteLine("Directory was founded");
-            fl.GetAllFilesAndDirectories(dirname);
-            
-            
-            foreach(var name in fl)
+           
+
+
+            foreach (var name in fl)
             {
                 Console.WriteLine(name);
             }
