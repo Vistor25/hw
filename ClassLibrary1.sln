@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystemVisitor", "ClassLibrary1\FileSystemVisitor.csproj", "{C93C8AB5-723F-41B9-A01B-6555E037A476}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M1.Advanced.FileSystemVisitor", "ClassLibrary1\M1.Advanced.FileSystemVisitor.csproj", "{C93C8AB5-723F-41B9-A01B-6555E037A476}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M1.Advanced.ConsoleApp1", "ConsoleApp1\M1.Advanced.ConsoleApp1.csproj", "{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Module1.Advanced", "Module1.Advanced", "{6B0DBBDE-1151-4292-A8A2-908E25C05D13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +26,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C93C8AB5-723F-41B9-A01B-6555E037A476} = {6B0DBBDE-1151-4292-A8A2-908E25C05D13}
+		{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C} = {6B0DBBDE-1151-4292-A8A2-908E25C05D13}
 	EndGlobalSection
 EndGlobal

@@ -49,9 +49,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\FileSystemVisitor.csproj">
+    <ProjectReference Include="..\ClassLibrary1\M1.Advanced.FileSystemVisitor.csproj">
       <Project>{c93c8ab5-723f-41b9-a01b-6555e037a476}</Project>
-      <Name>FileSystemVisitor</Name>
+      <Name>M1.Advanced.FileSystemVisitor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
