@@ -1,35 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Tas2
+namespace Task2
 {
     public static class ParseNumber
     {
+        private const int OFFSET = 48;
         public static int Parse(string number)
         {
-            if (String.IsNullOrEmpty(number))
-            {
+            if (string.IsNullOrEmpty(number))
                 throw new ArgumentNullException();
-            }
-            number = number.Trim(' ');
-            bool IsNegative = Negative(ref number);
+            number = number.Trim();
+            var isNegative = Negative(ref number);
             ValidateNumber(number);
-            int y = 0;
+            var y = 0;
             try
             {
-               y = InternalParse(number, IsNegative);
+                y = InternalParse(number, isNegative);
             }
             catch (OverflowException)
             {
-
             }
             return y;
-            
         }
 
         private static bool Negative(ref string number)
@@ -46,35 +38,31 @@ namespace Tas2
             }
             return false;
         }
+
         private static int ToDigit(char a)
         {
-            int b = Convert.ToByte(a);
-            return b - 48;
+            var b = Convert.ToByte(a);
+            return b - OFFSET;
         }
 
         private static int InternalParse(string number, bool isNegative)
         {
-            int result = 0;
-            int counter = 1;
-            for (int i = number.Length - 1; i >= 0; i--)
+            var result = 0;
+            var counter = 1;
+            for (var i = number.Length - 1; i >= 0; i--)
             {
-                result =checked(result + ToDigit(number[i]) * counter);
+                result = checked(result + ToDigit(number[i]) * counter);
                 counter *= 10;
             }
-            return isNegative?result*-1:result;
+            return isNegative ? result * -1 : result;
         }
+
         private static void ValidateNumber(string number)
         {
-           
             if (number.Length > 10)
-            {
                 throw new OverflowException();
-            }
-            if (number.All(item => !Char.IsDigit(item)))
-            {
+            if (number.All(item => !char.IsDigit(item)))
                 throw new FormatException();
-            }
-
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Tas2;
+using Task2;
 
 namespace M2.Exception.UnitTest
 {

@@ -9,7 +9,7 @@ namespace FileSysClassLibrary
 {
     public class DirectoryEventArgs: EventArgs
     {
-        public bool Run { get; set; }
+        public bool CanRun { get; set; }
         public DirectoryInfo Directory { get; set; }
     }
 }
