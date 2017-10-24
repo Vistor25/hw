@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C}</ProjectGuid>
+    <ProjectGuid>{515E6566-943F-4844-8574-F48002E282A3}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleApp1</RootNamespace>
-    <AssemblyName>ConsoleApp1</AssemblyName>
+    <RootNamespace>ConsoleApp</RootNamespace>
+    <AssemblyName>ConsoleApp</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,9 +49,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\M1.Advanced.FileSystemVisitor.csproj">
-      <Project>{c93c8ab5-723f-41b9-a01b-6555e037a476}</Project>
-      <Name>M1.Advanced.FileSystemVisitor</Name>
+    <ProjectReference Include="..\M2.Task2\M2.Exception.ParseToInt.csproj">
+      <Project>{83929eb6-e0ec-4378-aeba-237df0b2ab4e}</Project>
+      <Name>M2.Exception.ParseToInt</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

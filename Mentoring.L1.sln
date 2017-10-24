@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M1.Advanced.FileSystemVisitor", "M1.ClassLibrary1\M1.Advanced.FileSystemVisitor.csproj", "{C93C8AB5-723F-41B9-A01B-6555E037A476}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M1.Advanced.ConsoleApp1", "M1.ConsoleApp1\M1.Advanced.ConsoleApp1.csproj", "{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Module1.Advanced", "Module1.Advanced", "{6B0DBBDE-1151-4292-A8A2-908E25C05D13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M2.Exception.ParseToInt", "M2.Task2\M2.Exception.ParseToInt.csproj", "{83929EB6-E0EC-4378-AEBA-237DF0B2AB4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Module2.Exception", "Module2.Exception", "{2C2F3A0E-1B93-49C0-8CF2-DAC2B5F41DC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M2.Exception.FirstSymbol", "M2.Task1\M2.Exception.FirstSymbol.csproj", "{A9EBFF03-F86F-48C2-A8E0-56DC8C92A8EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M2.Exception.ConsoleApp", "M2.ConsoleApp\M2.Exception.ConsoleApp.csproj", "{515E6566-943F-4844-8574-F48002E282A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M2.Exception.UnitTest", "M2.Exception.UnitTest\M2.Exception.UnitTest.csproj", "{74543CB1-2F35-45B3-AC2E-E6A2B2401EF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C93C8AB5-723F-41B9-A01B-6555E037A476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C93C8AB5-723F-41B9-A01B-6555E037A476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C93C8AB5-723F-41B9-A01B-6555E037A476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C93C8AB5-723F-41B9-A01B-6555E037A476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83929EB6-E0EC-4378-AEBA-237DF0B2AB4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83929EB6-E0EC-4378-AEBA-237DF0B2AB4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83929EB6-E0EC-4378-AEBA-237DF0B2AB4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83929EB6-E0EC-4378-AEBA-237DF0B2AB4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9EBFF03-F86F-48C2-A8E0-56DC8C92A8EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9EBFF03-F86F-48C2-A8E0-56DC8C92A8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9EBFF03-F86F-48C2-A8E0-56DC8C92A8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9EBFF03-F86F-48C2-A8E0-56DC8C92A8EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{515E6566-943F-4844-8574-F48002E282A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{515E6566-943F-4844-8574-F48002E282A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{515E6566-943F-4844-8574-F48002E282A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{515E6566-943F-4844-8574-F48002E282A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74543CB1-2F35-45B3-AC2E-E6A2B2401EF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74543CB1-2F35-45B3-AC2E-E6A2B2401EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74543CB1-2F35-45B3-AC2E-E6A2B2401EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74543CB1-2F35-45B3-AC2E-E6A2B2401EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C93C8AB5-723F-41B9-A01B-6555E037A476} = {6B0DBBDE-1151-4292-A8A2-908E25C05D13}
+		{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C} = {6B0DBBDE-1151-4292-A8A2-908E25C05D13}
+		{83929EB6-E0EC-4378-AEBA-237DF0B2AB4E} = {2C2F3A0E-1B93-49C0-8CF2-DAC2B5F41DC5}
+		{A9EBFF03-F86F-48C2-A8E0-56DC8C92A8EA} = {2C2F3A0E-1B93-49C0-8CF2-DAC2B5F41DC5}
+		{515E6566-943F-4844-8574-F48002E282A3} = {2C2F3A0E-1B93-49C0-8CF2-DAC2B5F41DC5}
+		{74543CB1-2F35-45B3-AC2E-E6A2B2401EF9} = {2C2F3A0E-1B93-49C0-8CF2-DAC2B5F41DC5}
+	EndGlobalSection
+EndGlobal
