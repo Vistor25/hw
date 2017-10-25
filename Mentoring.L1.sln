@@ -1,13 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M1.Advanced.FileSystemVisitor", "M1.ClassLibrary1\M1.Advanced.FileSystemVisitor.csproj", "{C93C8AB5-723F-41B9-A01B-6555E037A476}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M1.Advanced.ConsoleApp1", "M1.ConsoleApp1\M1.Advanced.ConsoleApp1.csproj", "{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Module1.Advanced", "Module1.Advanced", "{6B0DBBDE-1151-4292-A8A2-908E25C05D13}"
+	ProjectSection(SolutionItems) = preProject
+		FyleSystemVisitor.Tests\Tests.cs = FyleSystemVisitor.Tests\Tests.cs
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M2.Exception.ParseToInt", "M2.Task2\M2.Exception.ParseToInt.csproj", "{83929EB6-E0EC-4378-AEBA-237DF0B2AB4E}"
 EndProject
@@ -19,16 +20,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M2.Exception.ConsoleApp", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M2.Exception.UnitTest", "M2.Exception.UnitTest\M2.Exception.UnitTest.csproj", "{74543CB1-2F35-45B3-AC2E-E6A2B2401EF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M1.Advanced.FileSystemVisitor", "M1.Advanced\M1.Advanced.FileSystemVisitor.csproj", "{3A0AB665-861F-449B-B15F-C47328CB4D11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FyleSystemVisitor.Tests", "FyleSystemVisitor.Tests\FyleSystemVisitor.Tests.csproj", "{395DBBA5-9706-4A9C-91C1-BC87C95505AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C93C8AB5-723F-41B9-A01B-6555E037A476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C93C8AB5-723F-41B9-A01B-6555E037A476}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C93C8AB5-723F-41B9-A01B-6555E037A476}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C93C8AB5-723F-41B9-A01B-6555E037A476}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,16 +50,25 @@ Global
 		{74543CB1-2F35-45B3-AC2E-E6A2B2401EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74543CB1-2F35-45B3-AC2E-E6A2B2401EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74543CB1-2F35-45B3-AC2E-E6A2B2401EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A0AB665-861F-449B-B15F-C47328CB4D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0AB665-861F-449B-B15F-C47328CB4D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0AB665-861F-449B-B15F-C47328CB4D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0AB665-861F-449B-B15F-C47328CB4D11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{395DBBA5-9706-4A9C-91C1-BC87C95505AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{395DBBA5-9706-4A9C-91C1-BC87C95505AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{395DBBA5-9706-4A9C-91C1-BC87C95505AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{395DBBA5-9706-4A9C-91C1-BC87C95505AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C93C8AB5-723F-41B9-A01B-6555E037A476} = {6B0DBBDE-1151-4292-A8A2-908E25C05D13}
 		{4E4090F9-2CCB-42C0-A5FB-C768E5DBE60C} = {6B0DBBDE-1151-4292-A8A2-908E25C05D13}
 		{83929EB6-E0EC-4378-AEBA-237DF0B2AB4E} = {2C2F3A0E-1B93-49C0-8CF2-DAC2B5F41DC5}
 		{A9EBFF03-F86F-48C2-A8E0-56DC8C92A8EA} = {2C2F3A0E-1B93-49C0-8CF2-DAC2B5F41DC5}
 		{515E6566-943F-4844-8574-F48002E282A3} = {2C2F3A0E-1B93-49C0-8CF2-DAC2B5F41DC5}
 		{74543CB1-2F35-45B3-AC2E-E6A2B2401EF9} = {2C2F3A0E-1B93-49C0-8CF2-DAC2B5F41DC5}
+		{3A0AB665-861F-449B-B15F-C47328CB4D11} = {6B0DBBDE-1151-4292-A8A2-908E25C05D13}
+		{395DBBA5-9706-4A9C-91C1-BC87C95505AA} = {6B0DBBDE-1151-4292-A8A2-908E25C05D13}
 	EndGlobalSection
 EndGlobal

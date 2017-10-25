@@ -56,13 +56,19 @@ namespace FileSysClassLibrary
                     OnFilteredFileFound(file);
                 yield return file.Name;
                 if (!CanRun)
+                {
+                    OnFinish();
                     yield break;
+                }
             }
 
             foreach (var directory in directories)
             {
                 if (!CanRun)
+                {
+                    OnFinish();
                     yield break;
+                }
 
                 OnDirectoryFound(directory);
                 if (_directoryFilter != null && _directoryFilter(directory))
@@ -71,7 +77,10 @@ namespace FileSysClassLibrary
                 yield return directory.FullName;
 
                 if (!CanRun)
+                {
+                    OnFinish();
                     yield break;
+                }
 
                 foreach (var item in GetDerictories(directory))
                     yield return item;

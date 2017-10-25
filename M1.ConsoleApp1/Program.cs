@@ -1,10 +1,10 @@
-﻿using FileSysClassLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FileSysClassLibrary;
 
 namespace ConsoleApp1
 {
@@ -22,7 +22,9 @@ namespace ConsoleApp1
             FileSystemVisitor fl = new FileSystemVisitor(@"C:\Intel");
             fl.Start += () => Console.WriteLine("Started");
             fl.Finish += () => Console.WriteLine("Finished");
-           
+            fl.DirectoryFound += asasas;
+            fl.FileFound += a;
+
 
 
             foreach (var name in fl)
@@ -30,6 +32,18 @@ namespace ConsoleApp1
                 Console.WriteLine(name);
             }
             Console.ReadLine();
+
+            void asasas(object sender, DirectoryEventArgs arg)
+            {
+                if (arg.Directory.Name == "Logs")
+                    arg.CanRun = false;
+            }
+
+            void a(object sender, FileEventArgs arg)
+            {
+                if (arg.File.Name == "cacerts")
+                    arg.CanRun = false;
+            }
         }
     }
 }
