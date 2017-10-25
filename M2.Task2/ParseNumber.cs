@@ -14,13 +14,7 @@ namespace Task2
             var isNegative = Negative(ref number);
             ValidateNumber(number);
             var y = 0;
-            try
-            {
-                y = InternalParse(number, isNegative);
-            }
-            catch (OverflowException)
-            {
-            }
+            y = InternalParse(number, isNegative);
             return y;
         }
 
@@ -61,7 +55,7 @@ namespace Task2
         {
             if (number.Length > 10)
                 throw new OverflowException();
-            if (number.All(item => !char.IsDigit(item)))
+            if (!number.All(item => Char.IsDigit(item)))
                 throw new FormatException();
         }
     }
